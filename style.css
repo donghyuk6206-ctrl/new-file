@@ -1,10 +1,31 @@
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: transparent;
+    --text-color: #333;
+    --ball-bg: #fff;
+    --ball-text: #333;
+    --btn-bg: #efefef;
+    --btn-text: #000;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --ball-bg: #333;
+    --ball-text: #fff;
+    --btn-bg: #444;
+    --btn-text: #fff;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -14,6 +35,7 @@ body {
 .lotto-numbers {
     display: flex;
     margin: 20px 0;
+    justify-content: center;
 }
 
 .lotto-numbers span {
@@ -22,15 +44,30 @@ body {
     height: 40px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--ball-bg);
+    color: var(--ball-text);
     line-height: 40px;
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#generate-btn {
+#generate-btn, #theme-toggle {
     padding: 10px 20px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    margin: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
